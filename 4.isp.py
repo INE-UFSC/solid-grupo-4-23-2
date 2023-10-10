@@ -1,4 +1,4 @@
-"""
+'''"""
 Interface Segregation Principle
 Crie interfaces que são específicas. Clientes não devem depender de interfaces que eles não usarão
 """
@@ -42,5 +42,26 @@ class JanelaSemMenu(IJanela):
     
     def fechar(self):
         pass
+'''
 
+from abc import ABC, abstractmethod
 
+class IMaximizavel(ABC):
+    @abstractmethod
+    def maximizar(self):
+        pass
+
+class IMinimizavel(ABC):
+    @abstractmethod
+    def minimizar(self):
+        pass
+
+class IMenuVisivel(ABC):
+    @abstractmethod
+    def mostrar_menu(self):
+        pass
+
+class IFechavel(ABC):
+    @abstractmethod
+    def fechar(self):
+        pass

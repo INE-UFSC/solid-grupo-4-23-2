@@ -13,6 +13,12 @@ class Animal:
     def get_name(self) -> str:
         pass
 
-    # salva no DB
-    def save(self, animal: Animal):
+
+## a classe animal não deve ter o método save. Uma classe deve ser criada para isso
+
+class Save:
+    def __init__(self) -> None:
+        pass
+
+    def save(self):
         pass

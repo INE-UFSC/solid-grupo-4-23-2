@@ -1,3 +1,8 @@
+## fazer a extensão da classe animal (criar classe gato, cachorro e cada uma vai ter seu próprío metodo fazer som)
+
+
+'''
+
 """
 Open-Closed Principle
 
@@ -49,3 +54,38 @@ class Discount:
             if self.customer == 'vip':
                 return self.price * 0.4
 
+'''
+from abc import ABC, abstractmethod
+
+
+class Animal(ABC):
+    def __init__(self, name: str):
+        self.name = name
+    
+    def get_name(self) -> str:
+        pass
+    
+    @abstractmethod
+    def make_sound(self):
+        print('algum barulho')
+
+class Lion(Animal):
+    def __init__(self) -> None:
+        pass
+
+    def get_name(self):
+        pass
+
+    def make_sound(self):
+        print('roar')
+
+
+class Mouse(Animal):
+    def __init__(self, name: str):
+        super().__init__(name)
+
+    def get_name(self) -> str:
+        return super().get_name()
+    
+    def make_sound(self):
+        print('squeak')
