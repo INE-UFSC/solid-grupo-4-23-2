@@ -25,7 +25,7 @@ class Snake(Animal):
         super().__init__('snake')
 
     def leg_count(self):
-        print('I have no legs, dummy')
+        return 0
 
 
 def animal_leg_count(animals: list):
