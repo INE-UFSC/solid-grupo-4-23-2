@@ -55,37 +55,71 @@ class Discount:
                 return self.price * 0.4
 
 '''
-from abc import ABC, abstractmethod
 
+
+#######SOLUÇÃO 
+
+from abc import ABC, abstractmethod
 
 class Animal(ABC):
     def __init__(self, name: str):
         self.name = name
-    
-    def get_name(self) -> str:
-        pass
-    
+
     @abstractmethod
     def make_sound(self):
-        print('algum barulho')
+        pass
+
+    def get_name(self) -> str:
+        return self.name
 
 class Lion(Animal):
-    def __init__(self) -> None:
-        pass
-
-    def get_name(self):
-        pass
-
     def make_sound(self):
         print('roar')
 
-
 class Mouse(Animal):
-    def __init__(self, name: str):
-        super().__init__(name)
-
-    def get_name(self) -> str:
-        return super().get_name()
-    
     def make_sound(self):
         print('squeak')
+
+animals = [
+    Lion('Lion'),  
+    Mouse('Mouse') 
+]
+
+def animal_sound(animals: list):
+    for animal in animals:
+        animal.make_sound()
+
+animal_sound(animals)
+
+
+####SOLUÇÃO 2
+
+class Discount(ABC):
+    def __init__(self, customer, price):
+        self.customer = customer
+        self.price = price
+
+    @abstractmethod
+    def give_discount(self):
+        pass
+            
+
+class DiscountVip(Discount):
+    def __init__(self, customer, price):
+        if customer == "vip":
+            super().__init__(customer, price)
+        else:
+            raise TypeError("Esse desconto é apenas para clientes vips")
+
+    def give_discount(self):
+        return self.price * 0.4
+    
+class DiscountFav(Discount):
+    def __init__(self, customer, price):
+        if customer == "fav":
+            super().__init__(customer, price)
+        else:
+            raise TypeError("Esse desconto é apenas para clientes fav")
+
+    def give_discount(self):
+        return self.price * 0.2
